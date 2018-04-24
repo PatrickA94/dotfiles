@@ -1,0 +1,14 @@
+#!/bin/bash
+
+touchON="$(synclient TouchpadOff -l | grep TouchpadOff |  grep -Eo '.$' | tail -1)"
+
+if [ "$touchON" -eq 0 ]
+then 
+	synclient TouchpadOff=1
+fi
+
+if [ "$touchON" -eq 1 ]
+then 
+        synclient TouchpadOff=0
+fi
+
